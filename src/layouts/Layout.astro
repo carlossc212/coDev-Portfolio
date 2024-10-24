@@ -1,7 +1,8 @@
 ---
-import 'bootstrap/dist/css/bootstrap.min.css';
-import BootstrapJS from '../components/BootstrapJS.astro';
-import Header from '../components/Header.astro';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import BootstrapJS from "../components/BootstrapJS.astro";
+import Header from "../components/Header.astro";
 interface Props {
 	title: string;
 }
@@ -19,33 +20,69 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body data-bs-theme="dark">	
+	<body data-bs-theme="dark">
 		<div class="background"></div>
-  
-		<Header/>
+
+		<div class="grid"></div>
+
+		<Header />
 		<slot />
 	</body>
 	<BootstrapJS client:load />
 </html>
 
 <style is:global>
-	[data-bs-theme=dark]{
+
+	* {
+		scrollbar-width: thin; /* Define el grosor como 'thin' o 'auto' */
+		scrollbar-color: #2c2c2c #181717; /* Define los colores del scrollbar y del track */
+		scroll-behavior: smooth;
+	}
+	[data-bs-theme="dark"] {
 		--bs-body-bg: #171717;
 	}
 
-	.background {
-		position: absolute;
-		top: 0;
-		z-index: -10;
-		height: 100vh;
-		width: 100vw;
-		background-color: #0f0f0f;
-		background-image: radial-gradient(
-			ellipse 80% 80% at 50% -20%,
-			rgba(102, 95, 199, 0.3),
-			rgba(255, 255, 255, 0)
-		);
+	body {
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
 	}
 
-	
+	.background {
+		position: fixed; /* Fijo para que siempre cubra la pantalla, sin afectar al flujo del contenido */
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		background-image: radial-gradient(
+			ellipse 80% 80% at 50% -20%,
+			rgba(130, 123, 233, 0.3),
+			rgba(255, 255, 255, 0)
+		);
+		z-index: -10;
+	}
+
+	.grid {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 300vw;
+		height: 300vh;
+		background-color: rgba(15, 15, 15, 0.815);
+		background-image: linear-gradient(
+				to right,
+				rgba(255, 255, 255, 0.05) 1px,
+				transparent 1px
+			),
+			linear-gradient(
+				to bottom,
+				rgba(255, 255, 255, 0.05) 1px,
+				transparent 1px
+			);
+		background-size: 70px 70px;
+		transform: translate(-50%, -50%) rotateX(65deg) rotateZ(30deg)
+			rotateY(-5deg) scale(1.5);
+		transform-origin: center center;
+		z-index: -11;
+	}		
 </style>
