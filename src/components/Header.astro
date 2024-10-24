@@ -5,26 +5,25 @@ import Logo from './Logo.astro';
 <nav class="navbar navbar-expand-lg bg-transparent border-bottom fixed-top">
     <div class="container-fluid px-5 py-2">
         <Logo width="50" />
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-center flex-grow-1 px-auto fs-5 fw-lighter">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                    <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
+                        <a class="nav-link" href="#about" aria-label="about">About</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
                         <a class="nav-link" href="#experience">Experiencie</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>

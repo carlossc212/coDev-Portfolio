@@ -1,7 +1,6 @@
 ---
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import BootstrapJS from "../components/BootstrapJS.astro";
 import Header from "../components/Header.astro";
 interface Props {
 	title: string;
@@ -28,16 +27,31 @@ const { title } = Astro.props;
 		<Header />
 		<slot />
 	</body>
-	<BootstrapJS client:load />
 </html>
 
 <style is:global>
-
-	* {
-		scrollbar-width: thin; /* Define el grosor como 'thin' o 'auto' */
-		scrollbar-color: #2c2c2c #181717; /* Define los colores del scrollbar y del track */
-		scroll-behavior: smooth;
+/******************************SCROLLBAR**************************************** */
+	::-webkit-scrollbar{
+		width: 8px;
 	}
+
+	::-webkit-scrollbar-button{
+		display: block;
+		height: 0px;
+		border-radius: 0px;
+		background-color: #313741;
+	}
+
+	::-webkit-scrollbar-thumb{
+		background-color: #2c2c2c;
+		border-radius: 5px;
+	}
+
+	::-webkit-scrollbar-track{
+		background-color: #181717;
+	}
+/******************************END-SCROLLBAR**************************************** */
+
 	[data-bs-theme="dark"] {
 		--bs-body-bg: #171717;
 	}
@@ -86,3 +100,8 @@ const { title } = Astro.props;
 		z-index: -11;
 	}		
 </style>
+
+
+<script>
+	import 'bootstrap';
+</script>

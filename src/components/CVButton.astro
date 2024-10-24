@@ -1,3 +1,32 @@
-<a {...Astro.props} href="/cv.pdf" download="CV_CarlosSanjuan" class="btn btn-primary cv-button">
-     Download CV
+<a href="/cv.pdf" download="CV_CarlosSanjuan" class="btn btn-primary cv-button">
+     <i class="bi bi-download icon"></i>Download CV
 </a>
+
+<style>
+     .cv-button{
+          margin-top: 20px;
+          position: relative;
+          transition: all 0.3s ease-in-out;
+          overflow: hidden;
+     }
+
+     .icon{
+          position: absolute;
+          margin: 0 auto;
+          right: 0;
+          left: 0;
+          top: -100%;
+          transition: all 0.3s ease-in-out;
+          color: transparent;
+     }
+
+     .cv-button:hover{
+          color: transparent;
+     }
+
+     .cv-button:hover .icon{
+          color: #fff;
+          top: 50%;
+          transform: translateY(-50%);
+     }
+</style>
