@@ -1,3 +1,21 @@
+---
+import { Image } from "astro:assets"
+import MeJPG from "@images/me.jpg"
+---
 <section id="about" class="container">
-    <div class="row">About</div>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">About me</h2>
+        </div>
+        <div class="col-12 col-md-5 text-center foto">
+            <Image src={MeJPG} alt={"Programming"} loading={"eager"} class={"img-fluid"}/>
+        </div>
+        <div class="col-12 col-md-7 about">About</div>
+    </div>
 </section>
+
+<style>
+    .foto, .about{
+        border: 1px solid red;
+    }
+</style>
