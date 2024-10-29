@@ -1,10 +1,12 @@
 ---
-import About from '@components/About.astro';
-import Hero from '@components/Hero.astro';
+import About from '@components/sections/About.astro';
+import Loader from '@components/effects/Loader.astro';
+import Hero from '@components/sections/Hero.astro';
 import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
+	<Loader/>
 	<Hero/>
 	<About/>
 </Layout>

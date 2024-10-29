@@ -1,0 +1,186 @@
+---
+import { Image } from "astro:assets";
+import MeJPG from "@images/me.jpg";
+import GradientNoFillText from "@components/text/GradientNoFillText.astro";
+import Fade from "@components/effects/Fade.astro";
+import FrontEndIcon from "@components/icons/FrontEnd.astro";
+import BackEndIcon from "@components/icons/BackEnd.astro";
+import UIUXIcon from "@components/icons/UIUX.astro";
+import MachineLearningIcon from "@components/icons/MachineLearning.astro";
+import CloudComputingIcon from "@components/icons/CloudComputing.astro";
+import TechComunitiesIcon from "@components/icons/TechComunities.astro";
+---
+
+<section id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="container">
+                    <h2 class="text-center text-lg-end section-title">
+                        <GradientNoFillText>About Me</GradientNoFillText>
+                    </h2>
+                </div>
+                <hr class="w-75 m-auto mb-5" />
+            </div>
+            <div
+                class="col-12 col-lg-5 text-center flex-column justify-content-center"
+            >
+                <Fade from="left">
+                    <Image
+                        src={MeJPG}
+                        alt={"Programmer"}
+                        loading={"lazy"}
+                        class={"img-fluid"}
+                    />
+                </Fade>
+            </div>
+            <div class="col-12 col-lg-7">
+                <Fade from="bottom">
+                    <div id="about-text" class="about-me">
+                        <p>
+                            Hi, I’m Carlos, a passionate software developer with
+                            a focus on building high-quality, efficient, and
+                            scalable applications. With 2+ years of experience
+                            in technologies like Laravel, Node.js, Android
+                            Studio and much more, I enjoy working across the
+                            full stack, from crafting intuitive front-end
+                            interfaces to designing robust back-end
+                            architectures.
+                        </p>
+                        <p>
+                            I’m driven by problem-solving and constantly seek
+                            new ways to improve my skills and stay updated with
+                            the latest industry trends. Whether working solo or
+                            collaborating in a team, my goal is always to create
+                            impactful, user-friendly solutions that meet both
+                            technical requirements and business needs.
+                        </p>
+
+                        <p>
+                            Outside of coding, I love exploring new
+                            technologies, contributing to open-source projects,
+                            and engaging with the developer community. Let’s
+                            work together to bring innovative ideas to life!
+                        </p>
+                    </div>
+                </Fade>
+            </div>
+            <div class="col-12 interests flex-column">
+                <h3 class="text-center interests-title">My Interests</h3>
+                <div class="row">
+                    <div class="col text-center">
+                        <div
+                            class="p-3 d-flex flex-column justify-content-center icon"
+                            data-bs-toggle="tooltip"
+                            data-bs-title="FrontEnd Developement"
+                        >
+                            <FrontEndIcon />
+                        </div>
+                        <h5 class="mt-3">Frontend</h5>
+                    </div>
+                    <div class="col text-center">
+                        <div
+                            class="p-3 d-flex flex-column justify-content-center icon"
+                            data-bs-toggle="tooltip"
+                            data-bs-title="BackEnd Developement"
+                        >
+                            <BackEndIcon />
+                        </div>
+                        <h5 class="mt-3">Backend</h5>
+                    </div>
+                    <div class="col text-center">
+                        <div
+                            class="p-3 d-flex flex-column justify-content-center icon"
+                            data-bs-toggle="tooltip"
+                            data-bs-title="UI/UX Design"
+                        >
+                            <UIUXIcon />
+                        </div>
+                        <h5 class="mt-3">UI/UX</h5>
+                    </div>
+                    <div class="col text-center">
+                        <div
+                            class="p-3 d-flex flex-column justify-content-center icon"
+                            data-bs-toggle="tooltip"
+                            data-bs-title="Machine Learning"
+                        >
+                            <MachineLearningIcon />
+                        </div>
+                        <h5 class="mt-3">ML</h5>
+                    </div>
+                    <div class="col text-center">
+                        <div
+                            class="p-3 d-flex flex-column justify-content-center icon"
+                            data-bs-toggle="tooltip"
+                            data-bs-title="Cloud Computing"
+                        >
+                            <CloudComputingIcon />
+                        </div>
+                        <h5 class="mt-3">Cloud</h5>
+                    </div>
+                    <div class="col text-center">
+                        <div
+                            class="p-3 d-flex flex-column justify-content-center icon"
+                            data-bs-toggle="tooltip"
+                            data-bs-title="Tech Communities"
+                        >
+                            <TechComunitiesIcon />
+                        </div>
+                        <h5 class="mt-3">Community</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-me {
+        padding-top: 5%;
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        margin: 40px 0;
+        padding: 0 12%;
+    }
+
+    .interests {
+        margin-top: 40px;
+    }
+
+    .interests-title {
+        margin: 40px 0 80px 0;
+    }
+
+    .icon {
+        border: 1px solid white;
+        border-radius: 50%;
+        width: fit-content;
+        aspect-ratio: 1/1;
+        margin: 0 auto;
+        font-size: 3rem;
+        transition: border .3s ease, color .3s ease, transform .3s ease;
+    }
+
+    .icon:hover+h5{
+        transition: color .3s ease;
+    }
+
+    .icon:hover>svg{
+        transition: transform .3s ease-in-out;
+    }
+    .icon:hover{
+        border-color: #e3eba3;
+        color: #e3eba3;
+        transform: scale(1.1);
+    }
+
+    .icon:hover>svg{
+        transform: rotateY(360deg);
+    }
+
+    .icon:hover+h5{
+        color: #e3eba3;
+    }
+</style>

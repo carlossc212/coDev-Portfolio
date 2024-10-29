@@ -1,0 +1,57 @@
+---
+// Definición de la interfaz y extracción de props
+interface Props {
+    from?: "top" | "left" | "bottom" | "right";
+}
+
+const { from } = Astro.props;
+---
+
+<div class="position-relative">
+    <div class={`fade-object ${from}`}>
+        <slot />
+    </div>
+</div>
+
+<style>
+    .fade-object {
+        opacity: 0;
+        transition: opacity 2s ease, transform 1s ease;
+    }
+
+    .fade-object.top {
+        transform: translateY(-50%);
+    }
+    .fade-object.bottom {
+        transform: translateY(50%);
+    }
+    .fade-object.right {
+        transform: translateX(50%);
+    }
+    .fade-object.left {
+        transform: translateX(-50%); 
+    }
+
+    .fade-object.show {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+</style>
+
+<script>
+    window.addEventListener("load", (event)=>{
+        const elements = document.getElementsByClassName("fade-object");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+
+        for (const element of elements) {
+            observer.observe(element);
+        }
+    });
+</script>

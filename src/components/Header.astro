@@ -2,7 +2,7 @@
 import Logo from '@components/Logo.astro';
 ---
 
-<nav class="navbar navbar-expand-lg bg-transparent border-bottom fixed-top">
+<nav id="top-navbar" class="navbar navbar-expand-lg bg-transparent border-bottom fixed-top">
     <div class="container-fluid px-5 py-2">
         <Logo width="50" />
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
@@ -15,19 +15,61 @@ import Logo from '@components/Logo.astro';
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-center flex-grow-1 px-auto fs-5 fw-lighter">
                     <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
-                        <a class="nav-link" href="#about" aria-label="about">About</a>
+                        <a class="nav-link blur-hover" href="#about" aria-label="about">About</a>
                     </li>
                     <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
-                        <a class="nav-link" href="#experience">Experiencie</a>
+                        <a class="nav-link blur-hover" href="#experience">Experiencie</a>
                     </li>
                     <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
-                        <a class="nav-link" href="#projects">Projects</a>
+                        <a class="nav-link blur-hover" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasDarkNavbar">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link blur-hover" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
       </div>
     </div>
   </nav>
+
+  <style>
+    #top-navbar{
+        animation: background-blur linear both;
+        animation-timeline: scroll();
+        animation-range: 0 200px;
+    }
+
+    .offcanvas{
+        height: 100dvh;
+    }
+    .blur-hover{
+        text-align: center;
+        position: relative;
+    }
+
+    .blur-hover::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 20px;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        transition: opacity .5s ease;
+        background: radial-gradient(circle, rgba(219,219,221,0.1) 0%, rgba(222,222,222,0) 100%);
+        opacity: 0;
+    }
+    .blur-hover:hover::after{
+        opacity: 1;   
+    }
+    @keyframes background-blur{
+        to{
+            box-shadow: 
+            0 5px 50px -5px hsla(0, 0%, 100%, 0.1),
+            0px 0px 0 1px hsla(0, 0%, 100%, 0.1);
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+    }
+  </style>
