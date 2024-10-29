@@ -1,7 +1,6 @@
 ---
-import About from '@components/sections/About.astro';
 import Loader from '@components/effects/Loader.astro';
-import Hero from '@components/sections/Hero.astro';
+import { Hero, About, Experience } from '@components/sections';
 import Layout from '@layouts/Layout.astro';
 ---
 
@@ -9,4 +8,5 @@ import Layout from '@layouts/Layout.astro';
 	<Loader/>
 	<Hero/>
 	<About/>
+	<Experience/>
 </Layout>
