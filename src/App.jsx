@@ -7,7 +7,7 @@ function App() {
       <header className="text-white fixed top-0 left-0 right-0 h-[var(--navbar-height)] z-20">
         <Navbar />
       </header>
-      <main className="bg-neutral-900 text-white min-h-screen pt-[var(--navbar-height)]">
+      <main className="bg-neutral-900 text-white h-full min-h-screen pt-[var(--navbar-height)]">
         <Hero />
       </main>
     </>

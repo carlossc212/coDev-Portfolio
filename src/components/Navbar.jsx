@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Toggler from "./Toggler";
+import NavListItem from "./NavListItem";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -13,12 +14,22 @@ const Navbar = () => {
           visible ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <ul className="flex flex-col">
-          <li className="inline-block animate-slide-in">Inicio</li>
-          <li>Sobre mi</li>
-          <li>Experiencia</li>
-          <li>Proyectos</li>
-          <li>Contacto</li>
+        <ul className="flex flex-col text-2xl text-center py-8">
+          <NavListItem navbarVisible={visible} animDelay={0}>
+            Inicio
+          </NavListItem>
+          <NavListItem navbarVisible={visible} animDelay={150}>
+            Sobre mi
+          </NavListItem>
+          <NavListItem navbarVisible={visible} animDelay={300}>
+            Experiencia
+          </NavListItem>
+          <NavListItem navbarVisible={visible} animDelay={450}>
+            Proyectos
+          </NavListItem>
+          <NavListItem navbarVisible={visible} animDelay={600}>
+            Contacto
+          </NavListItem>
         </ul>
       </div>
     </>
